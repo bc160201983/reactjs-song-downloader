@@ -36,7 +36,7 @@ const Main = () => {
   return (
     <div className="container mx-auto h-[calc(100vh-64px)]">
       <div className="flex flex-col justify-center items-center w-full">
-        <div className="title text-[50px] text-textPrimary whitespace-nowrap font-bold mb-5">
+        <div className="title md:text-[50px] text-[25px] text-textPrimary whitespace-nowrap font-bold mb-5">
           Download Your Favorite Song
         </div>
 
@@ -45,7 +45,7 @@ const Main = () => {
           value={query}
           placeholder="Search Song"
           type="text"
-          className="w-[50%] h-14 rounded-full border border-[#E9E9E9] text-center focus:border-none"
+          className="xl:w-[50%] w-full h-14 rounded-full border border-[#E9E9E9] text-center focus:border-none"
         />
       </div>
       <div className="trending flex flex-col space-y-5">
@@ -53,7 +53,7 @@ const Main = () => {
           Trending on Saavn
         </h3>
         <ReactAudioPlayer src={song} autoPlay controls />
-        <div className="info grid grid-cols-6 gap-5 text-center">
+        <div className="info grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-5 text-center">
           {data.map((item) => {
             return <Info key={item.id} {...item} />;
           })}
