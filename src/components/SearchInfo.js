@@ -52,7 +52,7 @@ const Info = (props) => {
             </div>
           </div>
           <div
-            onClick={() => setIsModalOpen(false)}
+            onClick={() => setIsModalOpen(!isModalOpen)}
             className="download-icon flex justify-end cursor-pointer w-[50%]"
           >
             <AiOutlineDownload className="h-6 w-6" />
