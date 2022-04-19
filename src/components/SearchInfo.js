@@ -27,7 +27,7 @@ const Info = (props) => {
   }
   return (
     <>
-      <div className="infowrapper relative sm:inline flex flex-col justify-center items-center">
+      <div className="infowrapper sm:mx-0 mx-auto sm:w-full w-[250px] relative sm:inline flex flex-col justify-center items-center">
         <div
           className="image-hover relative"
           onMouseEnter={() => setIsHover(id)}
