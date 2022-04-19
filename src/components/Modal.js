@@ -7,7 +7,7 @@ const Modal = ({ downloadUrl }) => {
     e.stopPropagation();
   };
   return (
-    <div className="absolute shadow-2xl rounded-md h-[165px] w-full bg-[#FFFFFF] z-50">
+    <div className="absolute shadow-2xl rounded-md h-[165px] w-[150px]  sm:w-full bg-[#FFFFFF] z-50">
       <div className="flex justify-between p-2 font-semibold">
         <div className="headings">Quality</div>
         <div className="headings">Link</div>
