@@ -5,9 +5,9 @@ const Info = ({ id, image, subtitle, title }) => {
   const [isHover, setIsHover] = useState(-1);
   return (
     <>
-      <div className="infowrapper sm:flex-col flex">
+      <div className="infowrapper sm:inline flex flex-col justify-center items-center">
         <div
-          className="image-hover relative sm:w-auto w-[250px]"
+          className="image-hover relative"
           onMouseEnter={() => setIsHover(id)}
           onMouseLeave={() => setIsHover(-1)}
         >
@@ -16,7 +16,7 @@ const Info = ({ id, image, subtitle, title }) => {
             alt={title}
             width="250"
             height="250"
-            className="rounded-lg sm:w-full img-shadow"
+            className="rounded-lg img-shadow"
           />
           <BsFillPlayCircleFill
             className={`${isHover === id && "icon-play"} hidden`}

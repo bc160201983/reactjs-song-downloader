@@ -13,10 +13,13 @@ const Modal = ({ downloadUrl }) => {
         <div className="headings">Link</div>
       </div>
       <hr />
-      {downloadUrl.map((item) => {
+      {downloadUrl.map((item, index) => {
         return (
           <>
-            <div className="flex px-2 justify-between font-semibold hover:bg-[#F6F6F6]">
+            <div
+              key={index}
+              className="flex px-2 justify-between font-semibold hover:bg-[#F6F6F6]"
+            >
               <div className="headings">{item.quality}</div>
               <a
                 onClick={handleDownload}

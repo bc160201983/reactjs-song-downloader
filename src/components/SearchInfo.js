@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BsFillPlayCircleFill } from "react-icons/bs";
 import { AiOutlineDownload } from "react-icons/ai";
 import Modal from "./Modal";
@@ -9,9 +9,25 @@ const Info = (props) => {
   const songLink = downloadUrl[4]?.link;
   const [isHover, setIsHover] = useState(-1);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const modalRef = useRef(null);
+  useOutsideAlerter(modalRef);
+
+  function useOutsideAlerter(ref) {
+    useEffect(() => {
+      const handleClickOutside = (e) => {
+        if (modalRef.current && !modalRef.current.contains(e.target)) {
+          setIsModalOpen(false);
+        }
+      };
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  }
   return (
     <>
-      <div className="infowrapper relative">
+      <div className="infowrapper relative sm:inline flex flex-col justify-center items-center">
         <div
           className="image-hover relative"
           onMouseEnter={() => setIsHover(id)}
@@ -36,13 +52,17 @@ const Info = (props) => {
             </div>
           </div>
           <div
-            onClick={() => setIsModalOpen(!isModalOpen)}
+            onClick={() => setIsModalOpen(false)}
             className="download-icon flex justify-end cursor-pointer w-[50%]"
           >
             <AiOutlineDownload className="h-6 w-6" />
           </div>
         </div>
-        {isModalOpen && <Modal downloadUrl={downloadUrl} />}
+        {isModalOpen && (
+          <div ref={modalRef}>
+            <Modal downloadUrl={downloadUrl} />
+          </div>
+        )}
       </div>
     </>
   );
